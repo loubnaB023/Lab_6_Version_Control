@@ -13,18 +13,18 @@ def encode_password(password):
 
     return encoded_password
 
-def decode_password(password):
-    if len(password) != 8 or not password.isdigit():
+def decode_password(encoded_password):
+    if len(encoded_password) != 8 or not encoded_password.isdigit():
         print("Password must be an 8-digit string containing only integers.")
+        return None
 
-    encoded_password = ""
+    decoded_password = ""
 
-    for digit in password:
-        shifted_digit = (int(digit) + 3)
-        encoded_password += str(shifted_digit)
+    for digit in encoded_password:
+        shifted_digit = (int(digit) - 3)  # modulo 10 to wrap numbers around
+        decoded_password += str(shifted_digit)
 
-    return encoded_password
-
+    return decoded_password
 
 def main():
     while True:
