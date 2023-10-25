@@ -21,7 +21,7 @@ def decode_password(encoded_password):
     decoded_password = ""
 
     for digit in encoded_password:
-        shifted_digit = (int(digit) - 3)  # modulo 10 to wrap numbers around
+        shifted_digit = (int(digit) - 3)
         decoded_password += str(shifted_digit)
 
     return decoded_password
